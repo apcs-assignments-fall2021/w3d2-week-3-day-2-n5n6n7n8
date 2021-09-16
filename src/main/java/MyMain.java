@@ -7,8 +7,7 @@ public class MyMain {
     //     isLetter('?') => false
     //     isLetter('4') => false
     public static boolean isLetter(char c) {
-        // REPLACE WITH YOUR CODE HERE
-        return false;
+        return (c>='a'&&c<='z')||(c>='A'&&c<='Z');
     }
 
     // This method is given two chars as input, c1 and c2
@@ -21,7 +20,11 @@ public class MyMain {
     //                             'f'
     //                             'g'
     public static void printChars(char c1, char c2) {
-        // REPLACE WITH YOUR CODE HERE
+        for(int i=c1; i<=c2; i++)
+        {
+            char x = (char)i;
+            System.out.println(x);
+        }
     }
 
     // Given a char ch, and returns the next letter in the alphabet.
@@ -34,8 +37,17 @@ public class MyMain {
     //     nextLetter('a') => 'b'
     //     nextLetter('z') => 'a'
     public static char nextLetter(char ch) {
-        // REPLACE WITH YOUR CODE HERE
-        return ' ';
+        if(ch=='z')
+        {
+            return 'a';
+        }
+        else if(ch=='Z')
+        {
+            return 'A';
+        }
+        int x = ch;
+        x++;
+        return (char) x;
     }
 
     // Similar to the previous example, the method is given a char ch. However, the method
@@ -46,11 +58,14 @@ public class MyMain {
     //     nextNextNextLetter('a') => 'd'
     //     nextNextNextLetter('z') => 'c'
     public static char nextNextNextLetter(char ch) {
-        // REPLACE WITH YOUR CODE HERE
-        return ' ';
+        int x = ch;
+        x+=3;
+        if(x>'z'||x>'Z'&& x<'a')
+        {
+            x-=26;
+        }
+        return (char) x;
     }
-
-
     public static void main(String[] args) {
         System.out.println("isLetter Tests:");
         System.out.println(isLetter('a')); // true
